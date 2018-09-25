@@ -1,0 +1,7 @@
+{
+  "name": "lotto",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
