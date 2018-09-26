@@ -29,8 +29,9 @@
             </ion-col>
 
             <ion-col col-8>
-              <label>{{'groupTypes.participantsText' | translate}}:</label>
-
+              <ng-template [ngIf]="groupType.open" [ngIfElse]="closedStatus">
+                  {{'groupTypes.openText' | translate}}: <ion-icon name='md-checkmark-circle-outline'></ion-icon>
+              </ng-template>
             </ion-col>
 
             <ion-col col-2>
@@ -43,3 +44,8 @@
     </ion-card>
   </ion-list>
 </ion-content>
+
+
+<ng-template #closedStatus>
+    <ion-icon name='md-close'></ion-icon>
+</ng-template>

@@ -6,6 +6,8 @@ import { GroupTypesPage } from './group-types';
 import { PipesModule } from '../../pipes/pipes.module';
 // translation
 import { TranslateModule } from '@ngx-translate/core';
+// material
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   imports: [
     PipesModule,
+    MatProgressBarModule,
     IonicPageModule.forChild(GroupTypesPage),
     TranslateModule.forChild()
   ],
