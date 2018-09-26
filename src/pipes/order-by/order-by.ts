@@ -17,7 +17,6 @@ export class OrderByPipe implements PipeTransform {
     if (!orderBy || orderBy.trim() == ""){
       return array;
     } 
-    debugger;
 
     //ascending
     if (asc){

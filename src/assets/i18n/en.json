@@ -2,8 +2,7 @@
     "groupTypes": {
         "titleString": "Group Play of {{size}}",
         "sizeString": "Group Size: {{size}}",
-        "openString": "Open: {{open ? yes: no}}",
-        "participantsText": "Participants",
+        "openText": "Open",
         "priceText": "Price"
     }
 }
