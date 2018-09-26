@@ -33,10 +33,10 @@ export class MyApp {
       { title: 'Login', component: LoginPage}
     ];
 
-    this.items = this.db.collection('items').valueChanges();
-    this.items.subscribe( res => {
-      console.log(res[0].name);
-    });
+    // this.items = this.db.collection('items').valueChanges();
+    // this.items.subscribe( res => {
+    //   console.log(res[0].name);
+    // });
   }
 
   initializeApp() {
