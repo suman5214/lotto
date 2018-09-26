@@ -1,0 +1,7 @@
+{
+    "groupTypes": {
+        "title": "{{size}}团",
+        "size": "人数：{{size}}",
+        "open": "开放中: {{open ? yes: no}}"
+    }
+}

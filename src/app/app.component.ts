@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { GroupTypesPage } from '../pages/group-types/group-types';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -30,13 +31,14 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
+      { title: 'Group Types', component: GroupTypesPage },
       { title: 'Login', component: LoginPage}
     ];
 
-    this.items = this.db.collection('items').valueChanges();
-    this.items.subscribe( res => {
-      console.log(res[0].name);
-    });
+    // this.items = this.db.collection('items').valueChanges();
+    // this.items.subscribe( res => {
+    //   console.log(res[0].name);
+    // });
   }
 
   initializeApp() {
