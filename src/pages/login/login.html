@@ -14,27 +14,99 @@
 
 <ion-content padding>
 
-<ion-grid>
+<ion-grid [ngSwitch]="showView">
   <ion-row>
       <ion-col col-6 offset-3>
           <ion-icon class="login-logo" name="heart" color="danger"></ion-icon>
         </ion-col>
   </ion-row>
+  <div *ngSwitchCase="'login-home'">
   <ion-row>
       <ion-col col-8 offset-2>
-          <button ion-button color="logo-blue" full round (click)="login()">Login with Facebook</button>
+          <button ion-button color="logo-blue" full round (click)="logout()">Login with Facebook</button>
       </ion-col>
   </ion-row>
   <ion-row>
       <ion-col col-8 offset-2>
-          <button ion-button color="logo-red" full round (click)="login()">Login with Google</button>
+          <button ion-button color="logo-red" full round (click)="loginWithGoogle()">Login with Google</button>
       </ion-col>
   </ion-row>
   <ion-row>
       <ion-col col-8 offset-2>
-          <button ion-button color="logo-orange" full round (click)="login()">Login with Email-ID</button>
+          <button ion-button color="logo-orange" full round (click)="setView('login-email')">Login with Email-ID</button>
       </ion-col>
   </ion-row>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="loginWithEmail()" *ngSwitchCase="'login-email'">
+  <ion-list>
+      <ion-item>
+          <ion-label floating>Email Id</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        <ion-item style="display:none;"></ion-item>
+    </ion-list>
+    <ion-row>
+    <ion-col col-8 offset-2>
+        <button ion-button color="logo-orange" full round type="submit" [disabled]="!loginForm.valid">Login</button>
+        <div class="form-error">{{authError}}</div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+        <a (click)="setView('register-email')">Don't Have a account? Click Here</a>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col>
+          <a (click)="setView('login-home')">Go Back to Login Page</a>
+      </ion-col>
+    </ion-row>
+
+
+  </form>
+
+  <form [formGroup]="registerForm" (ngSubmit)="signUpWithEmail()" *ngSwitchCase="'register-email'">
+      <ion-list>
+
+          <ion-item>
+            <ion-label floating>User name</ion-label>
+            <ion-input type="text" formControlName="userName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="tel" formControlName="phoneNumber"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Email Id</ion-label>
+              <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+            <ion-item style="display:none;"></ion-item>
+        </ion-list>
+        <ion-row>
+        <ion-col col-8 offset-2>
+            <div class="form-error">{{authError}}</div>
+            <button ion-button color="logo-orange" full round type="submit" [disabled]="!registerForm.valid">Register</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <a (click)="setView('login-home')">Go Back to Login Page</a>
+          </ion-col>
+        </ion-row>
+      </form>
+
 </ion-grid>
 
 

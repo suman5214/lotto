@@ -9,14 +9,14 @@ import { LoginPage } from '../pages/login/login';
 import { GroupTypesPage } from '../pages/group-types/group-types';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
   items: Observable<any[]>;
@@ -24,7 +24,8 @@ export class MyApp {
   constructor(public platform: Platform,
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
-              public db: AngularFirestore) {
+              public db: AngularFirestore,
+              private auth: AuthService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -48,6 +49,21 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    this.auth.afAuth.authState
+    .subscribe(
+      user => {
+        if (user) {
+          this.rootPage = HomePage;
+        } else {
+          this.rootPage = LoginPage;
+        }
+      },
+      () => {
+        this.rootPage = LoginPage;
+      }
+    );
+
   }
 
   openPage(page) {
@@ -55,4 +71,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
 }

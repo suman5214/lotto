@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // import each page modules
 import { GroupTypesPageModule } from '../pages/group-types/group-types.module';
 
+// firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -29,6 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+// Services
+import { AuthService } from '../services/auth.service'
 @NgModule({
   declarations: [
     MyApp,
@@ -55,7 +58,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFireStorageModule,
     AngularFireAuthModule,
     // page modules
-    GroupTypesPageModule
+    GroupTypesPageModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +71,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}
