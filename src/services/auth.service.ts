@@ -31,12 +31,12 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
   }
 
-  signInWithGoogle() {
+  signInWithGoogle():Promise<any> {
 		console.log('Sign in with google');
 		return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
   }
 
-  oauthSignIn(provider: AuthProvider) {
+  oauthSignIn(provider: AuthProvider):Promise<any> {
     if (!(<any>window).cordova) {
       return this.afAuth.auth.signInWithPopup(provider);
     } else {
@@ -45,7 +45,7 @@ export class AuthService {
         return this.afAuth.auth.getRedirectResult().then( (result:any) => {
           // This gives you a Google Access Token.
           // You can use it to access the Google API.
-          
+
           let token = result.credential.accessToken;
           // The signed-in user info.
           let user = result.user;

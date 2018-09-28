@@ -57,11 +57,11 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  logout(){
+  logout():void{
     this.auth.logout();
   }
 
-  loginWithEmail(){
+  loginWithEmail():void {
 
     let data = this.loginForm.value;
 
@@ -76,7 +76,7 @@ export class LoginPage {
 				error => this.authError = error.message
 			);
   }
-  signUpWithEmail() {
+  signUpWithEmail():void {
 		let data = this.registerForm.value;
 		let credentials = {
 			email: data.email,
@@ -87,7 +87,7 @@ export class LoginPage {
 			error => this.authError = error.message
 		);
   }
-  loginWithGoogle() {
+  loginWithGoogle():void {
     this.auth.signInWithGoogle().then(
         () => this.navCtrl.setRoot(HomePage),
         error => console.log(error.message)
