@@ -4,5 +4,7 @@
         "sizeString": "Group Size: {{size}}",
         "openText": "Open",
         "priceText": "Price"
+    },
+    "subGroup": {
     }
 }

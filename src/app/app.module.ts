@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // import each page modules
 import { GroupTypesPageModule } from '../pages/group-types/group-types.module';
+import { SubGroupPageModule } from '../pages/sub-group/sub-group.module';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
@@ -59,6 +60,8 @@ import { AuthService } from '../services/auth.service'
     AngularFireAuthModule,
     // page modules
     GroupTypesPageModule,
+    SubGroupPageModule,
+    // Generic modules
     ReactiveFormsModule
   ],
   bootstrap: [IonicApp],

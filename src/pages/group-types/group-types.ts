@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GroupType } from './common/GroupType';
 
+// other pages
+import { SubGroupPage } from '../../pages/sub-group/sub-group';
+
 import { TranslateService } from '@ngx-translate/core';
 /**
  * Generated class for the GroupTypesPage page.
@@ -36,6 +39,15 @@ export class GroupTypesPage {
       this.groupTypes = res;
     });
     
+  }
+
+  viewSubGroup(subGroup:GroupType){
+    this.navCtrl.push(
+      SubGroupPage,
+      {
+        subGroup: subGroup
+      }
+    )
   }
 
   ionViewDidLoad() {

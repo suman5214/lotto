@@ -1,5 +1,5 @@
 <!--
-  Generated template for the GroupTypesPage page.
+  Generated template for the SubGroupPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,23 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Group Types</ion-title>
+    <ion-title>{{'groupTypes.titleString' | translate:{size:subGroup.size} }}</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list>
     <ion-card 
-    *ngFor="let groupType of groupTypes | orderBy:'size':true"
-    (click)="viewSubGroup(groupType)"
     >
-
       <ion-card-header>
-        {{'groupTypes.titleString' | translate:{size: groupType.size} }}
+        {{'groupTypes.titleString' | translate:{size: subGroup.size} }}
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
@@ -33,7 +27,7 @@
             </ion-col>
 
             <ion-col col-8>
-              <ng-template [ngIf]="groupType.open" [ngIfElse]="closedStatus">
+              <ng-template [ngIf]="subGroup.open" [ngIfElse]="closedStatus">
                   {{'groupTypes.openText' | translate}}: <ion-icon name='md-checkmark-circle-outline'></ion-icon>
               </ng-template>
             </ion-col>
@@ -46,10 +40,4 @@
         </ion-grid>
       </ion-card-content>
     </ion-card>
-  </ion-list>
 </ion-content>
-
-
-<ng-template #closedStatus>
-    <ion-icon name='md-close'></ion-icon>
-</ng-template>
