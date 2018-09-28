@@ -1,17 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MyApp } from './app.component';
+
+// Pages
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+
 // import each page modules
 import { GroupTypesPageModule } from '../pages/group-types/group-types.module';
 import { SubGroupPageModule } from '../pages/sub-group/sub-group.module';
-
+import { LoginPageModule } from '../pages/login/login.module';
+import { LottoTypesPageModule } from '../pages/lotto-types/lotto-types.module';
 // firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -37,8 +40,7 @@ import { AuthService } from '../services/auth.service'
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    LoginPage
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,8 @@ import { AuthService } from '../services/auth.service'
     // page modules
     GroupTypesPageModule,
     SubGroupPageModule,
+    LoginPageModule,
+    LottoTypesPageModule,
     // Generic modules
     ReactiveFormsModule
   ],
@@ -68,8 +72,7 @@ import { AuthService } from '../services/auth.service'
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    LoginPage
+    ListPage
   ],
   providers: [
     StatusBar,

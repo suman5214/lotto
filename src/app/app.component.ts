@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { GroupTypesPage } from '../pages/group-types/group-types';
+import { LottoTypesPage } from '../pages/lotto-types/lotto-types';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -33,6 +34,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Group Types', component: GroupTypesPage },
+      { title: 'Lotto Types', component: LottoTypesPage },
       { title: 'Login', component: LoginPage}
     ];
 
