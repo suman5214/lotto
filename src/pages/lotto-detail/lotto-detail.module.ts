@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { LottoTypesPage } from './lotto-types';
+import { LottoDetailPage } from './lotto-detail';
 import { PipesModule } from '../../pipes/pipes.module';
+
 @NgModule({
   declarations: [
-    LottoTypesPage
+    LottoDetailPage,
   ],
   imports: [
     PipesModule,
-    IonicPageModule.forChild(LottoTypesPage),
+    IonicPageModule.forChild(LottoDetailPage),
   ],
 })
-export class LottoTypesPageModule {}
+export class LottoDetailPageModule {}

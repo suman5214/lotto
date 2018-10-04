@@ -4,6 +4,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { LottoType } from './common/LottoType';
 import { PipeTransform, Pipe} from '@angular/core';
 
+// other pages
+import { LottoDetailPage } from '../lotto-detail/lotto-detail';
+
 /**
  * Generated class for the LottoTypesPage page.
  *
@@ -12,20 +15,6 @@ import { PipeTransform, Pipe} from '@angular/core';
  */
 
 @IonicPage()
-
-@Pipe({name: 'times'})
-export class TimesPipe implements PipeTransform {
-  transform(value: number): any {
-    const iterable = {};
-    iterable[Symbol.iterator] = function* () {
-      let n = 0;
-      while (n < value) {
-        yield ++n;
-      }
-    };
-    return iterable;
-  }
-}
 
 export class FillPipe implements PipeTransform {
   transform(value) {
@@ -38,6 +27,7 @@ export class FillPipe implements PipeTransform {
   templateUrl: 'lotto-types.html',
 
 })
+
 export class LottoTypesPage {
   public lottoType: LottoType[] = [];
   constructor(public navCtrl: NavController,
@@ -45,12 +35,20 @@ export class LottoTypesPage {
               private db: AngularFirestore) {
   }
 
+  viewLottoDetail(lottoType: LottoType){
+    this.navCtrl.push(
+      LottoDetailPage,
+      {
+        lottoType: lottoType
+      }
+    )
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad LottoTypesPage');
 
     this.db.collection('lottoTypes').valueChanges().subscribe((res: LottoType[])=>{
       this.lottoType = res;
-      console.log(this.lottoType);
     });
   }
 

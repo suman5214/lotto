@@ -15,6 +15,7 @@
 
 <ion-content padding>
     <ion-card 
+      (click) = "viewLottoDetail(subGroup, lottoType)"
     >
       <ion-card-header>
         {{'groupTypes.titleString' | translate:{size: subGroup.size} }}

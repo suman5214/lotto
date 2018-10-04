@@ -17,3 +17,38 @@
 
 // material theme
 @import "indigo-pink.css";
+
+// global css
+
+// remove scrollbar on windows browsers
+.scroll-content{
+    overflow: auto;
+}
+// add transparent to dom element
+.opaque {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    ion-icon{
+        color:white;
+    }
+    ion-title{
+        *{
+            color: white;
+        }
+    }
+}
+
+.opaque .toolbar-background {
+    background-color: rgba(color( $colors, 'primary'), 0.75);
+    
+}
+
+// if fullscreen content, remove margin
+ion-content[fullscreen]{
+    .fixed-content{
+        margin-top: 0 !important;
+    }
+    .scroll-content{
+        padding-top: 0 !important;
+    }
+}

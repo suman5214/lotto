@@ -7,18 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>lotto-types</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lotto Types</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content class="card-background-page">
 
   <ion-grid>
     <ng-container *ngFor="let item of lottoType; let i = index; let even = even;">
       <ion-row *ngIf="even">
-          <ion-col col-4 offset-1>
+        <ion-col col-4 offset-1
+          (click) = "viewLottoDetail(item)"
+        >
           <ion-card>
             <img src="../../assets/imgs/lotto-649.png"/>
             <div class="card-title">{{lottoType[i].name}}</div>
@@ -28,7 +31,9 @@
             <div class="card-subtitle">{{lottoType[i].listing}} Listings</div>
           </ion-card>
         </ion-col>
-        <ion-col col-4 offset-1>
+        <ion-col col-4 offset-1
+          (click) = "viewLottoDetail(item)"
+        >
           <ion-card>
             <img src="../../assets/imgs/lotto-max.png"/>
             <div class="card-title">{{lottoType[i+1].name}}</div>

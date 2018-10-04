@@ -1,0 +1,48 @@
+<!--
+  Generated template for the LottoDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="opaque" >
+    <ion-title>lottoDetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content fullscreen="true">
+  <div class="lotto-background">
+    <img src="../../assets/imgs/lotto-detail/beach-coast-flip-flops.jpg" />
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-7>
+            <h3>
+              {{lottoType.name}}
+            </h3>
+            <div class="start-rating">
+                <ion-icon *ngFor="let star of lottoType.star|times" name="star" color="star-yellow"></ion-icon>
+            </div>
+          </ion-col>
+
+          <ion-col col-5 text-right>
+            <button ion-button outline item-end icon-start
+            (click)="viewGroupTypes(lottoType)">
+              <ion-icon name="cart"></ion-icon>
+              Buy Now</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+
+    <ion-card-content>
+      content
+    </ion-card-content>
+  </ion-card>
+</ion-content>

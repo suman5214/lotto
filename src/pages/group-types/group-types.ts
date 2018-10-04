@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GroupType } from './common/GroupType';
 
@@ -28,6 +28,7 @@ export class GroupTypesPage {
   constructor(public navCtrl: NavController, 
     private db: AngularFirestore,
     public navParams: NavParams,
+    private viewCtrl: ViewController,
     translate: TranslateService) {
       // this language will be used as a fallback when a translation isn't found in the current language
       translate.setDefaultLang('en');
@@ -48,6 +49,11 @@ export class GroupTypesPage {
         subGroup: subGroup
       }
     )
+  }
+
+  // close modal
+  dismiss(){
+    this.viewCtrl.dismiss();
   }
 
   ionViewDidLoad() {

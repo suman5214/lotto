@@ -7,9 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          Close
+        </button>
+    </ion-buttons>
+    
     <ion-title>Group Types</ion-title>
   </ion-navbar>
 </ion-header>

@@ -15,6 +15,7 @@ import { GroupTypesPageModule } from '../pages/group-types/group-types.module';
 import { SubGroupPageModule } from '../pages/sub-group/sub-group.module';
 import { LoginPageModule } from '../pages/login/login.module';
 import { LottoTypesPageModule } from '../pages/lotto-types/lotto-types.module';
+import { LottoDetailPageModule } from '../pages/lotto-detail/lotto-detail.module';
 // firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -65,6 +66,7 @@ import { AuthService } from '../services/auth.service'
     SubGroupPageModule,
     LoginPageModule,
     LottoTypesPageModule,
+    LottoDetailPageModule,
     // Generic modules
     ReactiveFormsModule
   ],
